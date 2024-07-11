@@ -1,0 +1,77 @@
+<div class="sidebar-brand">
+    <div class="sidebar-brand-logo">
+        <span><img src="../../assets/logo.png" alt="logo"></span>
+    </div>
+    <div class="sidebar-brand-name">
+        <h5>SDE</h5>
+        <small>Offre d'emploi</small>
+    </div>
+</div>
+<div class="sidebar-title">
+    <small>Menu</small>
+</div>
+<div class="sidebar-menu">
+    <ul>
+        <li>
+            <a routerLink="dashboard" routerLinkActive="active">
+                <span class="fas fa-home" data-bs-toggle="tooltip" data-bs-placement="right" title="Dashboard"></span>
+                <span>Dashboard</span>
+            </a>
+        </li>
+
+        <li>
+            <a routerLink="admin" routerLinkActive="active">
+                <span class="fas fa-user-shield" data-bs-toggle="tooltip" data-bs-placement="right" title="Administrateur">
+
+                </span><span>Administrateur</span>
+            </a>
+        </li>
+
+        <li>
+            <a routerLink="condidat" routerLinkActive="active">
+                <span class="fas fa-user" data-bs-toggle="tooltip" data-bs-placement="right" title="Condidat"></span>
+                <span> Condidat</span>
+            </a>
+        </li>
+
+        <li>
+            <a routerLink="entreprise" routerLinkActive="active">
+                <span class="fas fa-building" data-bs-toggle="tooltip" data-bs-placement="right"
+                    title="Entreprise"></span>
+                <span>Entreprise</span>
+            </a>
+        </li>
+
+        <li>
+            <a routerLink="offre" routerLinkActive="active">
+                <span class="fas fa-briefcase" data-bs-toggle="tooltip" data-bs-placement="right"
+                    title="Offre d'emploi"></span>
+                <span>Offre d'emploi</span>
+            </a>
+        </li>
+
+        <li>
+            <a routerLink="categorie" routerLinkActive="active">
+                <span class="fas fa-list" data-bs-toggle="tooltip" data-bs-placement="right" title="Categorie"></span>
+                <span>Categorie</span>
+            </a>
+        </li>
+
+        <li>
+            <a routerLink="message" routerLinkActive="active">
+                <span class="fab fa-facebook-messenger" data-bs-toggle="tooltip" data-bs-placement="right" title="Messages"></span>
+                <span>Messages</span> <small class="color-red" *ngIf="listOfMessages > 0">{{listOfMessages}}</small> 
+                
+            </a>
+        </li>
+    </ul>
+    
+</div>
+
+<div class="sidebar-footer">
+    <button class="logout-btn" data-bs-toggle="tooltip" data-bs-placement="right" title="Logout" (click)="logout()">
+        <i class="fas fa-sign-out-alt"></i> <div class="ms-1">Déconnexion</div>
+    </button>
+    
+</div>
+

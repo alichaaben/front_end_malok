@@ -1,0 +1,46 @@
+<div class="row host">
+    <div class="add-btn mb-4">
+        <a routerLink="/home/addoffre" class="btn"
+            style="background-color: #005a81; color: #FFFFFF ;font-weight: bold;">Ajouter nouveau offre</a>
+    </div>
+    <div *ngIf="numberOfOffres == 0; else show">
+        <h2 class="text-center">Aucune donnée disponible</h2>
+    </div>
+    <ng-template #show>
+        <table>
+            <thead>
+                <tr>
+                    <th scope="col">Titre</th>
+                    <th scope="col">Description</th>
+                    <th scope="col">Adresse</th>
+                    <th scope="col">Salaire</th>
+                    <th scope="col">Niveau d'etude</th>
+                    <th scope="col">Experience</th>
+                    <th scope="col">Type contrat</th>
+                    <th scope="col">Entreprise</th>
+                    <th scope="col">Logo</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let offre of listeOffres; let i = index">
+                    <td data-label="Titre"> {{offre.titreOffre}} </td>
+                    <td data-label="Description"> {{offre.descriptionOffre}} </td>
+                    <td data-label="Adresse"> {{offre.adresseOffre}} </td>
+                    <td data-label="Salaire"> {{offre.salaireOffre}} </td>
+                    <td data-label="Niveau d'etude"> {{offre.niveauEtudeOffre}} </td>
+                    <td data-label="Experience"> {{offre.experienceOffre}} </td>
+                    <td data-label="Type contrat">{{offre.typeDeContratOffre}}</td>
+                    <td data-label="Entreprise">{{offre.entreprise.nomEntreprise}}</td>
+                    <td data-label="Logo"><img [src]="listImages[i]" alt="img" class="img-thumbnail rounded mx-auto" width="200px"></td>
+                    <td data-label="Action">
+                        <div>
+                            <button class="btn me-2" [routerLink]="['/home/updateoffre', offre.idOffre]"style="background-color: #005a81; color: #FFF;"><i class="fas fa-cog"></i></button>
+                            <button class="btn me-2" (click)="deleteOffre(offre)" style="background-color: #FF3B3F; color: #FFF;"><i class="fas fa-times fa-lg"></i></button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </ng-template>
+</div>

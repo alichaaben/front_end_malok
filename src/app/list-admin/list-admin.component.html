@@ -1,0 +1,35 @@
+<div class="row host">
+  <div class="add-btn mb-4" *ngIf="roleAdmin == 'Super Admin'">
+    <a routerLink="/home/addadmin" class="btn" style="background-color: #005a81; color: #FFFFFF ;font-weight: bold;">Ajouter nouveau administrateur</a>
+  </div>
+  <div *ngIf="numberOfAdmins == 0; else show">
+    <h2 class="text-center">Aucune donnée disponible</h2>
+  </div>
+  <ng-template #show>
+    <table>
+      <thead>
+        <tr>
+          <th scope="col">Nom et Prenom</th>
+          <th scope="col">E-mail</th>
+          <th scope="col">Identifiant</th>
+          <th scope="col" *ngIf="roleAdmin == 'Super Admin'">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let admin of listeAdmin">
+          <td data-label="Nom et Prenom"> {{admin.nomAdmin + " " + admin.prenomAdmin}} </td>
+          <td data-label="E-mail">{{admin.emailAdmin}}</td>
+          <td data-label="Identifiant">{{admin.loginAdmin}}</td>
+          <td data-label="Action" *ngIf="roleAdmin == 'Super Admin'">
+            <div>
+              <button class="btn btn-sm me-2" [routerLink]="['/home/updateadmin', admin.idAdmin]" style="background-color: #005a81; color: #FFF;"><i class="fas fa-user-cog fa-lg"></i></button>
+              <button class="btn btn-sm me-2" (click)="deleteAdmin(admin)" style="background-color: #FF3B3F; color: #FFF;"><i class="fas fa-user-times fa-lg"></i></button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- Button trigger modal -->
+
+  </ng-template>
+</div>

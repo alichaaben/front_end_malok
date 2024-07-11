@@ -1,0 +1,38 @@
+<div class="row host">
+    <div class="add-btn mb-4">
+      <a routerLink="/home/addentreprise" class="btn" style="background-color: #005a81; color: #FFFFFF ;font-weight: bold;">Ajouter nouveau entreprise</a>
+    </div>
+    <div *ngIf="numberOfEnts == 0; else show">
+      <h2 class="text-center">Aucune donnée disponible</h2>
+    </div>
+    <ng-template #show>
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Nom</th>
+            <th scope="col">Adresse</th>
+            <th scope="col">Telephone</th>
+            <th scope="col">E-mail</th>
+            <th scope="col">Logo</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let ent of listeEnt; let i = index">
+            <td data-label="Nom"> {{ ent.nomEntreprise}} </td>
+            <td data-label="Adresse"> {{ ent.adresseEnt}} </td>
+            <td data-label="Telephone"> {{ ent.telephoneEnt}} </td>
+            <td data-label="E-mail">{{ ent.emailEnt}}</td>
+            <td data-label="Logo"><img [src]="listImages[i]" alt="img" class="img-thumbnail rounded mx-auto" width="200px"></td>
+            <td data-label="Action">
+              <div>
+                <button class="btn me-2" [routerLink]="['/home/updateentreprise', ent.idEntreprise]" style="background-color: #005a81; color: #FFF;"><i class="fas fa-cog"></i></button>
+                <button class="btn me-2" (click)="deleteEntereprise(ent)" style="background-color: #FF3B3F; color: #FFF;"><i class="fas fa-times fa-lg"></i></button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+  
+    </ng-template>
+  </div>

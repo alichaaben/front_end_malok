@@ -1,0 +1,30 @@
+<div class="row host">
+    <div *ngIf="numberOfComments == 0 ; else show">  
+      <h2 class="text-center">Aucune donnée disponible</h2>
+    </div>
+    <ng-template #show>
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Nom</th>
+            <th scope="col">E-mail</th>
+            <th scope="col">Sujet</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let comment of listeComments">
+            <td data-label="Nom"> {{comment.nomCommentaire}} </td>
+            <td data-label="E-mail"> {{comment.emailCommentaire}} </td>
+            <td data-label="Sujet"> {{comment.sujetCommentaire}} </td>
+            <td data-label="Action">
+              <div>
+                <button class="btn btn-sm me-2" (click)="deleteComment(comment)" style="background-color: #FF3B3F; color: #FFF;"><i class="fas fa-trash"></i></button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+  
+    </ng-template>
+  </div>

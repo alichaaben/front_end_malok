@@ -1,0 +1,36 @@
+<div style="background-color: #EFEFEF" class="host">
+    <div class="container-fluid mt-3">
+
+        <!-- <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <i class="far fa-check-circle me-3"></i> <small>Votre compte est bien crée</small>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div> -->
+
+        <div class="row justify-content-center mb-5">
+            <form class="col-lg-6 col-md-8 col-sm-12 col-xs-12">
+                <!-- <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <i class="fas fa-exclamation-triangle me-3"></i> <small>Confirmation de mot de passe incorrect</small>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div> -->
+
+                <div class="form-group mb-3">
+                    <label class="mb-2">Titre :</label>
+                    <input type="text" [(ngModel)]="newCategorie.titreCategorie" name="nom" class="form-control">
+                </div>
+                <div class="form-group mb-3">
+                    <label class="mb-2">Description :</label>
+                    <textarea name="description" [(ngModel)]="newCategorie.descriptionCategorie" rows="10" class="form-control"></textarea>
+                </div>
+
+                <div class="d-flex justify-content-center mb-2">
+                    <button type="button" (click)="addCategorie()" class="btn" style="background-color:#005a81; color: #fff">Ajouter</button>
+                </div>
+            </form>
+        </div>
+
+        <div>
+            <a routerLink="/home/categorie" class="btn"><i class="fas fa-arrow-left me-2"></i> retour a la liste</a>
+        </div>
+    </div>
+</div>
+

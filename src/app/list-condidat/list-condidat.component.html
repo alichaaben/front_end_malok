@@ -1,0 +1,37 @@
+<div class="row host">
+    <div class="add-btn mb-4">
+      <a routerLink="/home/addcondidat" class="btn" style="background-color: #005a81; color: #FFFFFF ;font-weight: bold;">Ajouter nouveau condidat</a>
+    </div>
+    <div *ngIf="numberOfCondidats == 0 ; else show">
+      <h2 class="text-center">Aucune donnée disponible</h2>
+    </div>
+    <ng-template #show>
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Nom et Prenom</th>
+            <th scope="col">E-mail</th>
+            <th scope="col">Telephone</th>
+            <th scope="col">Identifiant</th>
+            <th scope="col">Action</th>
+
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let cond of listeCondidats">
+            <td data-label="Nom et Prenom"> {{cond.nomCondidat + " " + cond.prenomCondidat}} </td>
+            <td data-label="E-mail"> {{cond.emailCondidat}} </td>
+            <td data-label="Telephone"> {{cond.telephoneCondidat}} </td>
+            <td data-label="Identifiant"> {{cond.loginCondidat}} </td>
+            <td data-label="Action">
+              <div>
+                <button class="btn btn-sm me-2" [routerLink]="['/home/updatecondidat', cond.idCondidat]" style="background-color: #005a81; color: #FFF;"><i class="fas fa-user-cog fa-lg"></i></button>
+                <button class="btn btn-sm me-2" (click)="deleteCondidat(cond)" style="background-color: #FF3B3F; color: #FFF;"><i class="fas fa-user-times fa-lg"></i></button>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+  
+    </ng-template>
+  </div>
